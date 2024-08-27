@@ -1,4 +1,4 @@
-package com.devmatheus.financial.exceptions;
+package com.devmatheus.financial.exceptions.handler;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(Object id){

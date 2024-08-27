@@ -1,4 +1,4 @@
-package com.devmatheus.financial.exceptions;
+package com.devmatheus.financial.exceptions.handler;
 
 import java.time.Instant;
 import java.util.HashMap;
@@ -10,6 +10,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.devmatheus.financial.exceptions.StandardError;
+import com.devmatheus.financial.exceptions.UnauthorizedException;
 
 import jakarta.servlet.http.HttpServletRequest;
 

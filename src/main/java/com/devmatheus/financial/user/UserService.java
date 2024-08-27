@@ -3,7 +3,7 @@ package com.devmatheus.financial.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.devmatheus.financial.exceptions.NotFoundException;
+import com.devmatheus.financial.exceptions.handler.NotFoundException;
 import com.devmatheus.financial.user.dtos.UserCreateDto;
 import com.devmatheus.financial.user.dtos.UserResponseDto;
 import com.devmatheus.financial.user.dtos.UserUpdateDto;
