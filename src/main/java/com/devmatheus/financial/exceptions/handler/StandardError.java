@@ -1,4 +1,4 @@
-package com.devmatheus.financial.exceptions;
+package com.devmatheus.financial.exceptions.handler;
 
 import java.io.Serializable;
 import java.time.Instant;

@@ -11,7 +11,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.devmatheus.financial.exceptions.StandardError;
+import com.devmatheus.financial.exceptions.BadRequestException;
+import com.devmatheus.financial.exceptions.NotFoundException;
 import com.devmatheus.financial.exceptions.UnauthorizedException;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -48,6 +49,14 @@ public class DefaultExceptionHandler {
     public ResponseEntity<StandardError> unauthorized(UnauthorizedException e, HttpServletRequest request) {
         String error = "Não autorizado";
         HttpStatus status = HttpStatus.UNAUTHORIZED;
+        StandardError standardError = new StandardError(Instant.now(), status.value(), error, e.getMessage(),
+                request.getRequestURI());
+        return ResponseEntity.status(status).body(standardError);
+    }
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<StandardError> badRequest(BadRequestException e, HttpServletRequest request) {
+        String error = "Requisição ruim";
+        HttpStatus status = HttpStatus.BAD_REQUEST;
         StandardError standardError = new StandardError(Instant.now(), status.value(), error, e.getMessage(),
                 request.getRequestURI());
         return ResponseEntity.status(status).body(standardError);
